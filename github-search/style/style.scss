@@ -1,2 +1,183 @@
-//Global Variables
-$primary-color : rgba(116, 211, 255, 0.685);
+//? Global Variables
+$primary-color : rgba(0, 173, 253, 0.65);
+$white-color: #fff;
+$login : rgb(95, 95, 95);
+/*=====Reset======*/
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: none;
+}
+
+footer,
+header,
+nav,
+section,
+main {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+input {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+
+/*=====Nav======*/
+
+nav {
+    background-color: $primary-color;
+    color: $white-color;
+    padding: 14px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.hero {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+
+    &-search {
+        width: max-content;
+        margin: 0 auto;
+
+    }
+
+    &-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &-image {
+        width: 120px;
+        overflow: hidden;
+        border-radius: 100px;
+        margin-top: 40px;
+
+        >img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__login {
+        font-size: 12px;
+        margin-top: 6px;
+        color: $login;
+    }
+
+    &__name {
+        margin-top: 6px;
+        font-weight: 700;
+    }
+
+    &-testimonial {
+        margin-top: 12px;
+        padding: 16px;
+        display: flex;
+        width: max-content;
+        justify-content: space-evenly;
+        box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.192);
+
+        >* {
+            margin: 0px 10px;
+        }
+    }
+}
