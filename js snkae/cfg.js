@@ -27,7 +27,11 @@ const cfg = {
         X: 10,
         Y: 0
     },
-    changeDir: false
+    changeDir: false,
+    food: {
+        x: 0,
+        y: 0
+    }
 }
 
 export default cfg

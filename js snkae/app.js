@@ -25,25 +25,44 @@ const draw = () => cfg.snake.data.forEach(part => create(part))
 const move = () => {
     const head = { x: cfg.snake.data[0].x + cfg.directions.X, y: cfg.snake.data[0].y + cfg.directions.Y };
     cfg.snake.data.unshift(head);
-    cfg.snake.data.pop();
-    console.log(cfg.snake.data);
+    if (cfg.snake.data[0].x == cfg.food.x && cfg.snake.data[0].y == cfg.food.y) {
+        gen()
+    }
+    else {
+        cfg.snake.data.pop();
+    }
 }
 function stop() {
     for (let i = 4; i < cfg.snake.data.length; i++)  if (cfg.snake.data[i].x === cfg.snake.data[0].x && cfg.snake.data[i].y === cfg.snake.data[0].y) return true
     const left = cfg.snake.data[0].x < 0;
+    if (left) cfg.snake.data[0].x = canvas.width - 10
     const right = cfg.snake.data[0].x > canvas.width - 10;
+    if (right) cfg.snake.data[0].x = 0
     const top = cfg.snake.data[0].y < 0;
+    if (top) cfg.snake.data[0].y = canvas.height - 10
     const bottom = cfg.snake.data[0].y > canvas.height - 10;
-    return left || right || top || bottom
+    if (bottom) cfg.snake.data[0].y = 0
 }
 document.addEventListener("keydown", key)
+const rand = (min, max) => parseInt(((Math.random() * (max - min) + min) / 10)) * 10
+const gen = () => {
+    cfg.food.x = rand(0, canvas.width - 10)
+    cfg.food.y = rand(0, canvas.height - 10)
+}
+const drawFood = () => {
+    ctx.fillStyle = 'red';
+    ctx.storkestyle = 'green';
+    ctx.fillRect(cfg.food.x, cfg.food.y, 10, 10)
+    ctx.strokeRect(cfg.food.x, cfg.food.y, 10, 10)
+}
+gen()
 //Functia main
 const main = () => {
     setInterval(function onTick() {
         if (stop()) return; cfg.changeDir = false;
         clear();
         move();
+        drawFood();
         draw();
-        console.log(cfg.directions.X)
-    }, 80)
+    }, 60)
 }; main()
