@@ -2,7 +2,6 @@ const display = document.getElementById("display")
 const equal = document.getElementById("equal")
 const buttons = Array.from(document.querySelectorAll(".button"))
 
-//find remove last 2 chars of a string js.
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
